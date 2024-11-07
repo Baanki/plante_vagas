@@ -9,6 +9,16 @@ public class FormacaoAcademica {
     private String nomeInstituicao;
     private String inicioData;
     private String fimData;
+    private int idCurriculo;
+
+    public FormacaoAcademica(String nivelFormacao, String grauFormacao, String status, String curso, String nomeInstituicao, int idCurriculo){
+        this.nivelFormacao = nivelFormacao;
+        this.grauFormacao = grauFormacao;
+        this.status = status;
+        this.curso = curso;
+        this.nomeInstituicao = nomeInstituicao;
+        this.idCurriculo = idCurriculo;
+    }
 
     public void setCurso(String curso) {
         this.curso = curso;
@@ -52,5 +62,11 @@ public class FormacaoAcademica {
     public String getStatus() {
         return status;
     }
-    
+    public int getIdCandidato() {
+        return idCurriculo;
+    }
+    public void setIdCandidato(int idCandidato) {
+        this.idCurriculo = idCandidato;
+    }
+
 }

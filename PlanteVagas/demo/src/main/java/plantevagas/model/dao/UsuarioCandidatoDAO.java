@@ -13,7 +13,7 @@ public class UsuarioCandidatoDAO {
 
         Connection conn = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
-        String sql = "INSERT INTO usuariocandidato (email, senha, nome, dataNascimento, cpf, telefone, rg, portadorDeficiencia) VALUES (?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO usuariocandidato (email, senha, nome, sobrenome, cpf, telefone, portadorDeficiencia) VALUES (?,?,?,?,?,?,?)";
 
         try {
             stmt = conn.prepareStatement(sql);
@@ -21,19 +21,16 @@ public class UsuarioCandidatoDAO {
             stmt.setString(1, usuario.getEmail());
             stmt.setString(2, usuario.getSenha());
             stmt.setString(3, usuario.getNome());
-            stmt.setString(4, usuario.getDataNascimento());
+            stmt.setString(4, usuario.getSobrenome());
             stmt.setString(5, usuario.getCpf());
             stmt.setString(6, usuario.getTelefone());
-            stmt.setString(7, usuario.getRg());
-            stmt.setBoolean(8, usuario.getPortadorDeficiencia());
+            stmt.setBoolean(7, usuario.getPortadorDeficiencia());
 
             stmt.executeUpdate();
             stmt.close();
             System.out.println("Salvo com sucesso!");
         } catch (SQLException e) {
             System.out.println("Erro ao salvar "+e);
-        }finally{
-            ConnectionFactory.closeConnection(conn, stmt);
         }
     }
 

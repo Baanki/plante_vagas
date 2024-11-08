@@ -6,7 +6,7 @@ public class UsuarioCandidato {
     private String email;
     private String senha;
     private String nome;
-    private String dataNascimento;
+    private String sobrenome;
     private String cpf;
     private String telefone;
     private String rg;
@@ -14,11 +14,11 @@ public class UsuarioCandidato {
     private Endereco endereco;
     private Curriculo curriculo;
 
-    public UsuarioCandidato(String email, String senha, String nome, String dataNascimento, String cpf, String telefone, String rg, Boolean portadorDeficiencia){
+    public UsuarioCandidato(String email, String senha, String nome, String sobrenome, String cpf, String telefone, String rg, Boolean portadorDeficiencia){
         this.email = email;
         this.senha = senha;
         this.nome = nome;
-        this.dataNascimento = dataNascimento;
+        this.sobrenome = sobrenome;
         this.cpf = cpf;
         this.telefone = telefone;
         this.rg = rg;
@@ -27,9 +27,6 @@ public class UsuarioCandidato {
 
     public String getCpf() {
         return cpf;
-    }
-    public String getDataNascimento() {
-        return dataNascimento;
     }
     public String getEmail() {
         return email;
@@ -54,9 +51,6 @@ public class UsuarioCandidato {
     }
     public void setCpf(String cpf) {
         this.cpf = cpf;
-    }
-    public void setDataNascimento(String dataNascimento) {
-        this.dataNascimento = dataNascimento;
     }
     public void setEmail(String email) {
         this.email = email;
@@ -91,5 +85,11 @@ public class UsuarioCandidato {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
-
+    public String getSobrenome() {
+        return sobrenome;
+    }
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
+    }
+    
 }

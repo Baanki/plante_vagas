@@ -6,20 +6,8 @@ import java.sql.ResultSet;
 import java.util.Scanner;
 
 import plantevagas.connection.ConnectionFactory;
-import plantevagas.model.bean.Certificado;
-import plantevagas.model.bean.Curriculo;
-import plantevagas.model.bean.Diferencial;
-import plantevagas.model.bean.ExperienciaProfissional;
-import plantevagas.model.bean.FormacaoAcademica;
-import plantevagas.model.bean.Idioma;
-import plantevagas.model.bean.UsuarioCandidato;
-import plantevagas.model.dao.CertificadoDAO;
-import plantevagas.model.dao.CurriculoDAO;
-import plantevagas.model.dao.DiferencialDAO;
-import plantevagas.model.dao.ExperienciaProfissionalDAO;
-import plantevagas.model.dao.FormacaoAcademicaDAO;
-import plantevagas.model.dao.IdiomaDAO;
-import plantevagas.model.dao.UsuarioCandidatoDAO;
+import plantevagas.model.bean.*;
+import plantevagas.model.dao.*;
 
 public class Main {
 
@@ -181,7 +169,37 @@ public class Main {
                     }
                 break;
                 case 2:
-
+                    System.out.println("Email: ");
+                        String email = read.nextLine();
+                    System.out.println("Senha: ");
+                        String senha = read.nextLine();
+                    System.out.println("Nome: ");
+                        String nome = read.nextLine();
+                    System.out.println("Sobrenome: ");
+                        String sobrenome = read.nextLine();
+                    System.out.println("Cpf: ");
+                        String cpf = read.nextLine();
+                    System.out.println("telefone: ");
+                        String telefone = read.nextLine();
+                    System.out.println("Gênero ");
+                        String genero = read.nextLine();
+                        Boolean continuarPortador = true;
+                        Boolean portadorDeficiencia = false;
+                            while (continuarPortador == true) {
+                                System.out.println("Possui alguma deficiencia? \n[1] Sim \n[2] Não");
+                                int testeEmpregoAtual = read.nextInt();
+                                if(testeEmpregoAtual == 1){
+                                    portadorDeficiencia = true;
+                                    continuarPortador = false;
+                                }else if(testeEmpregoAtual == 2){
+                                    portadorDeficiencia = false;
+                                    continuarPortador = false;
+                                }else{
+                                    continuarPortador = true;
+                                }
+                            }
+                        UsuarioCandidato usuarioCandidato = new UsuarioCandidato(email, senha, nome, sobrenome, cpf, telefone, genero,portadorDeficiencia);
+                        new UsuarioCandidatoDAO().create(usuarioCandidato);
                 break;
                 case 0:
                     read.close();
